@@ -6,8 +6,19 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      apiURL: '/api/lol/summoner/v3/summoners/by-name/omnisyntax?api_key=',
+      results: []
+    }
+  },
+  mounted () {
+    axios.get(this.apiURL).then(response => { this.results = response })
+  }
 }
 </script>
 
