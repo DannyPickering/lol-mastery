@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+const env = require('../.env.json')
 
 export default {
   name: 'App',
@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted () {
-    axios.get(this.apiURL).then(response => { this.results = response })
+    axios.get(this.apiURL + env.riot.API_KEY).then(response => { this.results = response })
   }
 }
 </script>
