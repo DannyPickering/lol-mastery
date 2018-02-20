@@ -12,7 +12,7 @@ export default {
   name: 'App',
   data () {
     return {
-      apiURL: '/api/lol/summoner/v3/summoners/by-name/omnisyntax?api_key=key',
+      apiURL: '/api/lol/summoner/v3/summoners/by-name/omnisyntax?api_key=',
       results: []
     }
   },

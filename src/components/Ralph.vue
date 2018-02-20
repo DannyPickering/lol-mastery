@@ -2,30 +2,29 @@
   <div class ="header">
       <div class = "header-main">
         <div class="input-bar">
-
-            <input class="summoner-name-input" v-model="summonerName" placeholder="Summoner Name" v-on:keyup.enter="submit">
-
+            <input class="summoner-name-input" v-model="summonerName" placeholder="Summoner Name" v-on:keyup.enter="submitName">
         </div>
       </div>
-
-
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+const env = require('../../.env.json')
 
 export default {
   name: 'Ralph',
   data () {
     return {
-      apiURL: '/api/lol/summoner/v3/summoners/by-name/' + summonerName + 'apiKey',
+      apiURL: '/api/lol/summoner/v3/summoners/by-name/' + this.summonerName + '?api_key=' + env.riot.API_KEY,
       results: [],
-      summonerName: ""
+      summonerName: ''
     }
   },
-  mounted () {
-    axios.get(this.apiURL).then(response => {this.results = response })
+  methods: {
+    submitName () {
+      axios.get(this.apiURL).then(response => { this.results = response })
+    }
   }
 }
 </script>
@@ -36,7 +35,6 @@ export default {
     font-family: serif;
     background: rgb(64, 58, 166);
   }
-
 
   #app {
     padding-top: 100px;
@@ -89,6 +87,5 @@ export default {
     padding-right: 15px;
 
   }
-
 
 </style>
