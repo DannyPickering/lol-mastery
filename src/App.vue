@@ -1,23 +1,23 @@
 <template>
   <div id="app">
-  
     <router-view/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+const env = require('../.env.json')
 
 export default {
   name: 'App',
   data () {
     return {
-      apiURL: '/api/lol/summoner/v3/summoners/by-name/omnisyntax?api_key=RGAPI-86dbe255-912a-4d3d-b814-58e8afe26e32',
+      apiURL: '/api/lol/summoner/v3/summoners/by-name/omnisyntax?api_key=key',
       results: []
     }
   },
   mounted () {
-    axios.get(this.apiURL).then(response => { this.results = response })
+    axios.get(this.apiURL + env.riot.API_KEY).then(response => { this.results = response })
   }
 }
 </script>
