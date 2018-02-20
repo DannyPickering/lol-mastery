@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+  
     <router-view/>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
   name: 'App',
   data () {
     return {
-      apiURL: '/api/lol/summoner/v3/summoners/by-name/omnisyntax?api_key=',
+      apiURL: '/api/lol/summoner/v3/summoners/by-name/omnisyntax?api_key=RGAPI-86dbe255-912a-4d3d-b814-58e8afe26e32',
       results: []
     }
   },
